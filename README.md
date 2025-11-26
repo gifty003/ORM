@@ -1,12 +1,12 @@
 # Ex02 Django ORM Web Application
-## Date: 
+## Date:
 
 ## AIM
-To develop a Django application to store and retrieve data from a Football Players database using Object Relational Mapping(ORM).
+To develop a Django Application to store and retrieve data from a E-Commerce Website Database for Amazon or Flipkart using Object Relational Mapping(ORM).
 
-## Entity Relationship Diagram
+## ENTITY RELATIONSHIP DIAGRAM
 
-Include your ER diagram here
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/e835b588-f619-4461-b820-141e1ca59a22" />
 
 ## DESIGN STEPS
 
@@ -20,35 +20,49 @@ Create a new app in Django project
 Enter the code for admin.py and models.py
 
 ### STEP 4:
-Execute Django admin and create 10 Football players
+Detect changes and create migration files that describe how to modify the database schema
 
-## PROGRAM:
-```
-models.py
+### STEP 5:
+Execute the migration files and update the database schema to match your Django models
 
+### STEP 6:
+Create a superuser with full access rights to all models and data through the admin interface.
+
+### STEP 7:
+Apply the migration files of the created app to the database
+
+### STEP 8:
+Execute Django admin using localhost and create details for 10 entries
+
+## PROGRAM
+```python
+model.py
 from django.db import models
 from django.contrib import admin
-class footballplayer (models.Model):
-    name=models.CharField(max_length=15)
-    weight=models.IntegerField()
-    age=models.IntegerField()
-    members=models.CharField(max_length=20)
 
-class footballplayerAdmin (admin.ModelAdmin):
-    list_display=('name','weight','age','members')
+class Movie(models.Model):
+    title = models.CharField(max_length=50)
+    director = models.CharField(max_length=50)
+    release_date = models.DateField()
+    genre = models.CharField(max_length=30)
+    rating = models.FloatField(default=0.0)
+
+class MovieAdmin(admin.ModelAdmin):
+    list_display = ('title', 'director', 'release_date', 'genre', 'rating')
 
 admin.py
-
 from django.contrib import admin
-from .models import footballplayer,footballplayerAdmin
-admin.site.register(footballplayer,footballplayerAdmin)
+from .models import Movie, MovieAdmin
+
+admin.site.register(Movie, MovieAdmin)
 
 ```
 
-## OUTPUT:
-![image](https://github.com/gifty003/ORM/assets/145822352/e89006ce-74f8-4899-8170-fc8a730284ce)
 
+## OUTPUT
+
+<img width="1282" height="676" alt="Screenshot 2025-11-27 011627" src="https://github.com/user-attachments/assets/9b20c865-eccf-42b1-895f-8a2c56bdfc1c" />
 
 
 ## RESULT
-Thus the program for creating a database using ORM hass been executed successfully
+Thus the program for creating E-commerce website database using ORM hass been executed successfully
